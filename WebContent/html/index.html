@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl1" style="float: left">
+    <p>名字 : <input type="text" ng-model="name"></p>
+    <h1>Hello {{ name | lowercase }} </h1>
+    <input type="text" ng-model="description"><br/>
+    <polaris-ht></polaris-ht>
+</div>
+
+<div id="A2" ng-app="app2"  ng-controller="myCtrl2" style="float: left; margin-left: 30px">
+    <p>使用 ng-repeat 来循环数组</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{ x }}
+        </li>
+    </ul>
+    <form name="myForm" ng-init="myText = 'test@runoob.com'">
+	    Email:
+	    <input type="email" name="myAddress" ng-model="text" required><br/>
+	    <span ng-show="myForm.myAddress.$error.email"><font style="color: red">邮箱不存在</font></span>
+	</form>
+</div>
+
+<div id="A3" ng-app="app3"  ng-controller="myCtrl3" style="float: left; margin-left: 30px">
+	url: {{myUrl}} <br/>
+	res: {{ myWelcome }} <br/>
+	当前时间：{{time}}<br/>
+	<select ng-model="selectedSite" ng-options="x for (x, y) in sites"></select>
+	<p>你选择的值是: {{selectedSite}}</p>
+	<button ng-click="count = count + 1">点我！</button>&nbsp;&nbsp;{{ count }}
+</div>
+<div id="A4" ng-app = "app4" ng-controller = "CalcController" style="float: left; margin-left: 30px">
+         <p>输入一个数字: <input type = "number" ng-model = "number" /></p>
+         <button ng-click = "square()">X<sup>2</sup></button>
+         <p>结果: {{result}}</p>
+</div>
+<div style="clear: both; border-top:3px inset skyblue;"><hr /></div>
+
+<div id="A5" ng-app = "app5" ng-controller = "myCtrl5" style="float: left; margin-left: 30px">
+		 <h3>body标签有效</h3>
+		 <ul>
+	         <li><a href="#/">首页</a></li>
+	         <li><a href="#/computers">电脑</a></li>
+	         <li><a href="#/blabla">其他</a></li>
+	     </ul>
+         <div ng-view></div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+<script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+<script type="text/javascript" src="test.js"></script>
+
+</body>
+</html>
